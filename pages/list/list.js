@@ -5,7 +5,20 @@ Page({
     objectId: null,
     title: '',
     newBookTitle: '',
-    books: ['book1']
+    books: []
+  },
+
+  onLoad: function(options) {
+    console.log(options)
+    if (options && options.id) {
+      new Query('BookList').get(options.id).then( booklist => {
+        this.setData({
+          objectId: booklist.id,
+          title: booklist.get('title'),
+          books: booklist.get('books')
+        });
+      }).catch(console.error);
+    }
   },
 
   onTitleEdited: function({detail: {value}}) {
@@ -47,7 +60,19 @@ Page({
         });
       }).catch(console.error);
     } else {
-
+      Object.createWithoutData('BookList', this.data.objectId).save({
+        title: this.data.title,
+        books: this.data.books
+      }).then( () => {
+        wx.navigateTo({
+          url: '../index/index',
+        });
+      }).catch( err => {
+        wx.showToast({
+          title: err.message,
+          icon: 'success',
+        });
+      });
     }
   }
 });

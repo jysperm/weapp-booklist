@@ -10,9 +10,7 @@ Page({
     this.setData({
       currentUser: getApp().currentUser
     });
-  },
 
-  onReady: function() {
     new Query('BookList').descending('updatedAt').include('author').find().then( booklists => {
       booklists.forEach( booklist => {
         booklist.set('author', booklist.get('author').attributes);
@@ -32,15 +30,15 @@ Page({
     }).catch(console.error);
   },
 
-  onCreateList: function() {
+  onEditList: function({target: {dataset: {id}}}) {
     wx.navigateTo({
-      url: '../list/list',
+      url: `../list/list?id=${id}`,
     });
   },
 
-  onSettings: function() {
+  onCreateList: function() {
     wx.navigateTo({
-      url: '../setting/setting',
+      url: '../list/list',
     });
   },
 

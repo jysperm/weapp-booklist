@@ -7,6 +7,7 @@
       </block>
     </view>
     <view class='author-info'>
+      <icon type='info' data-id='{{list.objectId}}' ontap='onEditList' wx:if='{{list.author.username === currentUser.username}}' />
       <text>{{list.author.nickName}}</text>
       <image class='avatar' src='{{list.author.avatarUrl}}' />
     </view>

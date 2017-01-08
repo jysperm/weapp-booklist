@@ -37,3 +37,7 @@ button {
   height: 60rpx;
   margin-right: 20rpx;
 }
+
+.author-info icon {
+  margin-left: 20rpx;
+}

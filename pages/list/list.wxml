@@ -16,5 +16,6 @@
   </view>
 </view>
 <view class='section'>
-  <button ontap='onSubmit' class='tappable' type='primary'>创建</button>
+  <button ontap='onSubmit' class='tappable' type='primary' wx:if='{{!objectId}}'>创建</button>
+  <button ontap='onSubmit' class='tappable' type='primary' wx:if='{{objectId}}'>保存</button>
 </view>
