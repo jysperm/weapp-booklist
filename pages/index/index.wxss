@@ -1,0 +1,39 @@
+.booklist {
+  padding: 20rpx 24rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: 500;
+}
+
+.inner-list {
+  padding-top: 20rpx;
+  padding-left: 60rpx;
+}
+
+.book-name {
+  margin: 8rpx 0;
+  display: block;
+}
+
+.footer {
+  margin: 45rpx;
+}
+
+button {
+  margin: 25rpx;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-top: 15rpx;
+}
+
+.avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}

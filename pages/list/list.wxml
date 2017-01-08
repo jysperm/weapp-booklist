@@ -1,0 +1,20 @@
+<view class='section'>
+  <input placeholder='书单标题' bindinput='onTitleEdited' value='{{title}}' />
+</view>
+<view class='section'>
+  <block wx:for='{{books}}' wx:for-item='book' wx:key='*this'>
+    <view class='book-item'>
+      <icon type='cancel' ontap='onRemoveBook' data-name='{{book}}' />
+      <text class='book-name'>{{book}}</text>
+    </view>
+  </block>
+</view>
+<view class='section'>
+  <view class='new-book'>
+    <input placeholder='添加书籍' class='new-book-input' bindinput='onNewBookEdited' value='{{newBookTitle}}' />
+    <text class='tappable' class='add-book' ontap='onNewBookAdd'>添加</text>
+  </view>
+</view>
+<view class='section'>
+  <button ontap='onSubmit' class='tappable' type='primary'>创建</button>
+</view>

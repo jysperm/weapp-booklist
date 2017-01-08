@@ -1,0 +1,18 @@
+<block wx:for='{{booklists}}' wx:for-item='list' wx:key='objectId'>
+  <view class='booklist'>
+    <text class='title'>{{list.title}}</text>
+    <view class='inner-list'>
+      <block wx:for='{{list.books}}' wx:for-item='book' wx:key='*this'>
+        <text class='book-name'>{{book}}</text>
+      </block>
+    </view>
+    <view class='author-info'>
+      <text>{{list.author.nickName}}</text>
+      <image class='avatar' src='{{list.author.avatarUrl}}' />
+    </view>
+  </view>
+</block>
+<view class='footer'>
+  <button ontap='onLogin' class='tappable' type='primary' wx:if='{{!currentUser}}'>一键登录</button>
+  <button ontap="onCreateList" class="tappable" wx:if='{{currentUser}}'>发布书单</button>
+</view>
