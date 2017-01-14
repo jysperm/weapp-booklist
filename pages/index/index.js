@@ -12,11 +12,13 @@ Page({
     });
 
     new Query('BookList').descending('updatedAt').include('author').find().then( booklists => {
-      booklists.forEach( booklist => {
-        booklist.set('author', booklist.get('author').attributes);
+      this.setData({
+        booklists: booklists.map( list => {
+          var result = list.toJSON();
+          result.author = list.get('author').toJSON();
+          return result;
+        })
       });
-
-      this.setData({booklists});
     }).catch(console.error);
   },
 

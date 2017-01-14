@@ -9,7 +9,6 @@ Page({
   },
 
   onLoad: function(options) {
-    console.log(options)
     if (options && options.id) {
       new Query('BookList').get(options.id).then( booklist => {
         this.setData({
